@@ -72,11 +72,11 @@ func (p Config) ResponseHandler(prefix string) {
 	for k := range p.Response {
 		if prefix != "" {
 			if strings.HasPrefix(k, prefix) {
-				fmt.Printf("Setting ENV var %s : %s\n", k, p.Response[k])
+				fmt.Printf("export %s=%s\n", k, p.Response[k])
 				os.Setenv(k, p.Response[k])
 			}
 		} else {
-			fmt.Printf("Setting ENV var %s : %s\n", k, p.Response[k])
+			fmt.Printf("export %s=%s\n", k, p.Response[k])
 			os.Setenv(k, p.Response[k])
 		}
 	}
