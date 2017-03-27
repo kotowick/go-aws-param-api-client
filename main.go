@@ -16,15 +16,15 @@ type paramRequest struct {
 
 var (
 	// General Flags
-	landscape   = kingpin.Flag("landscape", "Landscape").Short('l').Envar("PARAM_API_LANDSCAPE").String()
-	environment = kingpin.Flag("environment", "Environment").Short('e').Envar("PARAM_API_ENVIRONMENT").String()
-	application = kingpin.Flag("app", "Application").Short('a').Envar("PARAM_API_APPLICATION").String()
-	version     = kingpin.Flag("env-version", "Version").Short('v').Envar("PARAM_API_VERSION").String()
-	prefix      = kingpin.Flag("prefix", "Prefix").Short('p').Envar("PARAM_API_PREFIX").String()
-	output      = kingpin.Flag("output", "Output").Short('o').Envar("PARAM_API_OUTPUT_FILE").String()
+	landscape   = kingpin.Flag("landscape", "Landscape").Short('l').Envar("LANDSCAPE").String()
+	environment = kingpin.Flag("environment", "Environment").Short('e').Envar("ENVIRONMENT").String()
+	application = kingpin.Flag("app", "Application").Short('a').Envar("APPLICATION").String()
+	version     = kingpin.Flag("env-version", "Version").Short('v').Envar("VERSION").String()
+	prefix      = kingpin.Flag("prefix", "Prefix").Short('p').Envar("PREFIX").String()
+	output      = kingpin.Flag("output", "Output").Short('o').Envar("OUTPUT_FILE").String()
 
 	//Global Vars
-	cliVersion = "0.0.1"
+	cliVersion = "1.0.1"
 )
 
 //	Entry Controller
