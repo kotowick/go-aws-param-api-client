@@ -9,8 +9,9 @@ package param
 // os.Setenv(), or outputing them to a file.
 //
 type Config struct {
-	Request  Request
-	Response map[string]string
+	Request    Request
+	Response   map[string]string
+	ServiceURL string
 }
 
 // Request struct
@@ -31,15 +32,16 @@ type Request struct {
 //     // Create a Param client.
 //     svc := param.New(landscape, application, environment, version)
 //
-func New(landscape, application, environment, version string) *Config {
-	return newClient(landscape, application, environment, version)
+func New(landscape, application, environment, version, serviceURL string) *Config {
+	return newClient(landscape, application, environment, version, serviceURL)
 }
 
 // newClient creates, initializes and returns a new Param service.
 //
-func newClient(landscape, application, environment, version string) *Config {
+func newClient(landscape, application, environment, version, serviceURL string) *Config {
 	svc := &Config{
-		Request: Request{Application: application, Environment: environment, Version: version, Landscape: landscape},
+		Request:    Request{Application: application, Environment: environment, Version: version, Landscape: landscape},
+		ServiceURL: serviceURL,
 	}
 
 	return svc

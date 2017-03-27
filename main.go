@@ -16,12 +16,13 @@ type paramRequest struct {
 
 var (
 	// General Flags
-	landscape   = kingpin.Flag("landscape", "Landscape").Short('l').Envar("LANDSCAPE").String()
-	environment = kingpin.Flag("environment", "Environment").Short('e').Envar("ENVIRONMENT").String()
-	application = kingpin.Flag("app", "Application").Short('a').Envar("APPLICATION").String()
-	version     = kingpin.Flag("env-version", "Version").Short('v').Envar("VERSION").String()
-	prefix      = kingpin.Flag("prefix", "Prefix").Short('p').Envar("PREFIX").String()
-	output      = kingpin.Flag("output", "Output").Short('o').Envar("OUTPUT_FILE").String()
+	landscape          = kingpin.Flag("landscape", "Landscape").Short('l').Envar("LANDSCAPE").String()
+	environment        = kingpin.Flag("environment", "Environment").Short('e').Envar("ENVIRONMENT").String()
+	application        = kingpin.Flag("app", "Application").Short('a').Envar("APPLICATION").String()
+	version            = kingpin.Flag("env-version", "Version").Short('v').Envar("VERSION").String()
+	prefix             = kingpin.Flag("prefix", "Prefix").Short('p').Envar("PREFIX").String()
+	output             = kingpin.Flag("output", "Output").Short('o').Envar("OUTPUT_FILE").String()
+	paramAPIServiceURL = kingpin.Flag("service-url", "Param API Service URL").Short('s').Envar("SERVICE_URL").String()
 
 	//Global Vars
 	cliVersion = "1.0.1"
@@ -38,6 +39,7 @@ func main() {
 		*application,
 		*environment,
 		*version,
+		*paramAPIServiceURL,
 	)
 
 	if val := paramConfig.Verify(); !val {

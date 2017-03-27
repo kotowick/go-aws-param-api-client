@@ -44,7 +44,13 @@ func (p Config) RequestHandler(prefix string) (str map[string]string, err error)
 		return p.Response, err
 	}
 
-	res, err := http.Post("http://localhost:8080/params", "application/json", bytes.NewBuffer(jsonValue))
+	if p.ServiceURL != "" {
+		p.ServiceURL = fmt.Sprintf("http://%s/params", p.ServiceURL)
+	} else {
+		p.ServiceURL = fmt.Sprintf("http://localhost:8080/params")
+	}
+
+	res, err := http.Post(p.ServiceURL, "application/json", bytes.NewBuffer(jsonValue))
 
 	if err != nil {
 		return p.Response, err
